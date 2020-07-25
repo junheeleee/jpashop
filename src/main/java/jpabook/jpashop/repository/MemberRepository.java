@@ -5,14 +5,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
 @RequiredArgsConstructor // final인 필드만으로 생성자 만듦, 생성자는 최신 스프링에서 자동 Autowired가 된다.
 public class MemberRepository {
 
-    //    @PersistenceContext - Spring Data JPA를 사용하면 EntityManager가 Autowired 가능
+    //    @PersistenceContext - Spring Data JPA를 사용하면 EntityManager Autowired 가능
     private final EntityManager em;
 
 //    public MemberRepository(EntityManager em) {

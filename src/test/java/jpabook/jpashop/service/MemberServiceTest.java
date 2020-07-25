@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class) // JUnit에 Spring을 엮어서 사용할래!
 @SpringBootTest
-@Transactional // Test에서 기본적으로 트랜잭션 끝나면 Rollback 시킴. 당연히 서비스나 이런 곳에선 롤백 X
+@Transactional // Test에서 기본적으로 트랜잭션 끝나면 Rollback 시킴. 당연히 서비스나 이런 곳에선 롤백안됨.
 public class MemberServiceTest {
 
     @Autowired
