@@ -29,7 +29,7 @@ public class OrderItem {
     @JoinColumn(name = "order_id")
     private Order order;
 
-    private int orderPrices; //주문 가격
+    private int orderPrice; //주문 가격
     private int count; //주문 수량
 
 //    protected OrderItem() { //JPA에서 protect는 쓰지말라고 하는 용도. 모든 OrderItem은 밑에 createOrderItem방식으로만 생성 가능하다. set방식 X
@@ -37,10 +37,10 @@ public class OrderItem {
 //    }
 
     //==생성 메서드==//
-    public static OrderItem createOrderItem(Item item, int orderPrices, int count) {
+    public static OrderItem createOrderItem(Item item, int orderPrice, int count) {
         OrderItem orderItem = new OrderItem();
         orderItem.setItem(item);
-        orderItem.setOrderPrices(orderPrices);
+        orderItem.setOrderPrice(orderPrice);
         orderItem.setCount(count);
 
         item.removeStock(count);
@@ -57,6 +57,6 @@ public class OrderItem {
     * 주문상품 전체 가격 조회
     * */
     public int getTotalPrice() {
-        return getOrderPrices() * getCount();
+        return getOrderPrice() * getCount();
     }
 }

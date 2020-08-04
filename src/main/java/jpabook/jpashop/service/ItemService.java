@@ -20,6 +20,24 @@ public class ItemService {
         itemRepository.save(item);
     }
 
+//    @Transactional
+//    public Item updateItem(Long itemId, Book param) { //merge와 작동 방식이 같음
+//        Item findItem = itemRepository.findOnd(itemId);
+//        findItem.setPrice(param.getPrice());
+//        findItem.setName(param.getName());
+//        findItem.setStockQuantity(param.getStockQuantity());
+//        //save 할 필요가 없음 영속상태이기 때문에 알아서 바뀜
+//        return findItem;
+//    }
+
+    @Transactional
+    public void updateItem(Long itemId, String name, int price, int stockQuantity) {
+        Item findItem = itemRepository.findOnd(itemId);
+        findItem.setName(name);
+        findItem.setPrice(price);
+        findItem.setStockQuantity(stockQuantity);
+    }
+
     public List<Item> findItems() {
         return itemRepository.findAll();
     }
